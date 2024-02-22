@@ -18,7 +18,6 @@ mongoose
 const app= express()
 app.listen(3000,()=>{
     console.log("sunn raha hai n tu");
-    console.log(process.env.MONGO)
     
   
 })
