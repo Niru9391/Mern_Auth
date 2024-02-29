@@ -32,3 +32,12 @@ app.use('/api/auth',authroute)
 
 //CREATING A MIDDLWARE 
 
+app.use((err,req,res,next)=>{
+  const statuscode =err.statuscode||500;
+  const message = err.message||'Internal server error'
+  return res.status(statuscode).json({
+    succes:false,
+    message,
+    statuscode
+  })
+})
