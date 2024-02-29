@@ -28,3 +28,7 @@ app.listen(3000,()=>{
 
 app.use('/api/user',userRoutes)
 app.use('/api/auth',authroute)
+
+
+//CREATING A MIDDLWARE 
+
