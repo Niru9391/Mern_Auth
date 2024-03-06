@@ -30,13 +30,13 @@ export const signin = async(req,res,next)=>{
 
         }
 
-       const validpassword =bcryptjs.compareSync(password,validata.password);
+       const validpassword =await bcryptjs.compareSync(password,validata.password);
        if(!validpassword){
         return next(errorHandler(401,'Invalid information'))
        }
        const token = jwt.sign({id:validata._id},process.env.JWT_SECRET)
        const {password:hashedPassword,...rest}= validata._doc;
-       res.cookie('access_token',token,{httpOnly:true,  expires:new Date()+360000}).status(200).json(validata)
+       res.cookie('access_token',token,{httpOnly:true,  expires:new Date()}).status(200).json(rest)
 
     }
     catch(error){
