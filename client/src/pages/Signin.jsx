@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Oath from '../Components/Oath.jsx'
 import { Link, useNavigate} from 'react-router-dom'
 const  signin=()=> {
   const [Data,setData]=useState({});
@@ -49,6 +50,7 @@ const  signin=()=> {
         <input type="text" placeholder='Email' id='email' className='bg-slate-100 p-3 rounded-lg'  onChange={handleOnchange}/>
         <input type="password" placeholder='password' id='password' className='bg-slate-100 p-3 rounded-lg'  onChange={handleOnchange}/>
        <button disabled={loading} className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80'>{loading?'loading....':'Sign In'}</button>
+       <Oath/>
 
       </form>
       <div className=" flex gap-2 mt-5">

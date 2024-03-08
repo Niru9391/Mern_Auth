@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import Oath from '../Components/Oath';
 export default function Signup() {
   const [Data,setData]=useState({});
   const [error,seterror]=useState(false)
@@ -53,6 +54,7 @@ export default function Signup() {
         <input type="text" placeholder='Email' id='email' className='bg-slate-100 p-3 rounded-lg'  onChange={handleOnchange}/>
         <input type="password" placeholder='password' id='password' className='bg-slate-100 p-3 rounded-lg'  onChange={handleOnchange}/>
        <button disabled={loading} className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80'>{loading?'loading....':'Sign-up'}</button>
+       <Oath/>
 
       </form>
       <div className=" flex gap-2 mt-5">
