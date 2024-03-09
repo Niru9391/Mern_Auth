@@ -18,7 +18,7 @@ const  signin=()=> {
       const res = await fetch('/api/auth/signin/',{
         method:'POST',
         headers:{
-          'Content-Type':'application/js'
+          'Content-Type':'application/json'
         },
         body:JSON.stringify(Data)
       })
