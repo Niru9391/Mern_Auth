@@ -1,7 +1,10 @@
 import React from 'react'
 import { GoogleAuthProvider,getAuth,signInWithPopup } from 'firebase/auth';
 import {app} from '../firebase'
+import { signInSuccess } from '../redux/user/userSlice'
+import {useDispatch} from 'react-redux'
 export default function Oath() {
+  const dispatch = useDispatch()
     const handleGooglelink= async ()=>{
         try{
            // console.log("mai to click hua");
@@ -22,6 +25,7 @@ export default function Oath() {
            
            //   console.log(result)
            const data= await res.json();
+           dispatch(signInSuccess(data))
 
         }
         catch(error){
