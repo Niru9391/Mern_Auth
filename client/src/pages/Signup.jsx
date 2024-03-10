@@ -23,7 +23,7 @@ export default function Signup() {
         body:JSON.stringify(Data)
       })
       const data =  await res.json();
-     console.log(data)
+    console.log(data)
       setloading(false)
       if(data.succes===false){
         seterror(true)
@@ -40,7 +40,7 @@ export default function Signup() {
 
     }
  
-   // console.log(data)
+   console.log(Data)
 
   }
   //console.log(Data)
