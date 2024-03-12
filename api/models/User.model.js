@@ -17,9 +17,9 @@ const userSchema = new mongoose.Schema({
         require:true,
         
     },
-    profilrPicture:{
+    profilePicture:{
         type:String,
-        default:"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.indiatvnews.com%2Fprofile%2Fsunny-leone%2Fnews%2F27&psig=AOvVaw0qrNzK0aLkwF8i-NUqdFfi&ust=1710164192828000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCOCgnZzo6YQDFQAAAAAdAAAAABAE",
+        default:'https://rukminim2.flixcart.com/image/850/1000/xif0q/poster/g/u/f/large-hindu-god-lord-shiva-digital-photo-poster-with-uv-textured-original-imagrabk5e3surna.jpeg?q=90&crop=false',
         
 
     }

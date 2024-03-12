@@ -7,6 +7,7 @@ import Signup from './pages/Signup'
 import About from './pages/About'
 import Header from './Components/Header'
 import "./index.css";
+import PrivateRoute from './Components/PrivateRoute'
 export default function App() {
   return (
     
@@ -15,10 +16,13 @@ export default function App() {
     <Header/>
      <Routes>
       <Route path='/' element={<Home/>}/>
-      <Route path='/Profile' element={<Profile/>}/>
+      
       <Route path='/About' element={<About/>}/>
       <Route path='/Signin' element={<Signin/>}/>
       <Route path='/Signup' element={<Signup/>}/>
+      <Route element={<Profile/>}>
+      <Route path='/Profile' element={<PrivateRoute/>}/>
+      </Route>
      
      </Routes>
     </BrowserRouter>

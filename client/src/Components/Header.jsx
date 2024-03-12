@@ -1,7 +1,12 @@
-import React from 'react'
+
 import { Link } from 'react-router-dom'
+import {useSelector} from 'react-redux'
 export default function Header() {
+  const {currentUser}=useSelector(state=>state.user)
+  //console.log(currentUser);
+ 
   return (
+    
     <div className='bg-orange-500 bg-pink-500'>
     
       <div className='flex justify-between items-center max-w-6xl mx-auto p-3' >
@@ -11,9 +16,15 @@ export default function Header() {
       <ul className='flex gap-4'>
       <Link to='/'>  <li>Home</li></Link>
       <Link to='/About'> <li>About</li></Link>
-      <Link to='/Profile'> <li>Profile</li></Link>
-      <Link to='/Signin'> <li>Signin</li></Link>
-      <Link to='/Signup' > <li>Signup</li></Link>
+      <Link to='/Profile'>
+     {
+      
+      currentUser?(
+        <img src={currentUser.profilePicture} alt='profile' className='h-7 w-7 rounded-full object-cover' />
+      ):(
+        <li>Sign In</li>
+      )}
+      </Link>
       </ul>
 
       </div>

@@ -23,7 +23,7 @@ export default function Oath() {
             })
            })
            
-           //   console.log(result)
+            console.log(result)
            const data= await res.json();
            dispatch(signInSuccess(data))
 
