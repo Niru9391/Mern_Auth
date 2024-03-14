@@ -2,7 +2,7 @@ import { React, useEffect, useRef, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage';
 import { app } from '../firebase';
-import { updateUserStart,updateUserSuccess,updateUserFailure } from '../redux/user/userSlice';
+import { updateUserStart,updateUserSuccess,updateUserFailure, deleteUserStart, deleteUserFailure, deleteUserSuccess } from '../redux/user/userSlice';
 
 export default function Profile() {
   const dispatch = useDispatch()
@@ -60,18 +60,18 @@ export default function Profile() {
   };
   const handleDeleteAccount = async () => {
     try {
-      dispatch(updateUserStart());
+      dispatch(deleteUserStart());
       const res = await fetch(`/api/user/delete/${currentUser._id}`, {
         method: 'DELETE',
       });
       const data = await res.json();
       if (data.success === false) {
-        dispatch(updateUserFailure(data));
+        dispatch(deleteUserFailure(data));
         return;
       }
-      dispatch(updateUserSuccess(data));
+      dispatch(deleteUserSuccess(data));
     } catch (error) {
-      dispatch(updateUserFailure(error));
+      dispatch(deleteUserFailure(error));
     }
   };
   const handleSignOut = async () => {
