@@ -21,25 +21,26 @@ mongoose
 
 
 const app= express()
-app.use(express.static(path.join(__dirname, 'client', 'dist')))
 
-app.get('*',(req,res)=>{
-  res.sendFile(path.join(__dirname,'client','dist','index.html'))
-})
+
+
 app.use(express.json());
 app.use(cookieParser());
-app.listen(3000,()=>{
-    console.log("sunn raha hai n tu");
-    
-  
-})
+
+app.use(express.static(path.join(__dirname, '../client/dist')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
+});
+
 
 app.use('/api/user',userRoutes)
 app.use('/api/auth',authroute)
 
-
 //CREATING A MIDDLWARE 
-
+app.listen(3000,(req,res)=>{
+  console.log("sunn raha hai n tu");
+})
 app.use((err,req,res,next)=>{
   const statuscode =err.statuscode||500;
   const message = err.message||'Internal server error'
@@ -49,3 +50,4 @@ app.use((err,req,res,next)=>{
     statuscode
   })
 })
+console.log()
